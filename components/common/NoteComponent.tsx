@@ -54,22 +54,22 @@ const router=useRouter()
    //copy to clipboard
   const copyToClipboard = (e:any) => {
     e.stopPropagation()
-    const str=origin+`/link/${slug}`
+    const str=origin+`note/link/${slug}`
     window.navigator.clipboard.writeText(str);
     setShareModal(true);
   };
   return (
     <div onClick={()=>router.push(`/note/${slug}`)} className="bg-[#F6F7FF] h-[10hv] hover:border-scudGreen border p-4 rounded-lg">
       {" "}
-      <div className="flex mb-5 items-center justify-between">
+      <div className="flex mb-3 items-center justify-between">
         <div className="flex">
           {/* <img alt="" className="w-10 rounded-full h-10" src={"/photo.png"} /> */}
           <p className="font-bold">{title.substring(0, 16) + "..."}</p>
         </div>
         <p className="text-xs text-textColor/50">{formatedTime}</p>
       </div>
-      <p className="text-textColor/50 text-sm">
-        {content?.substring(3, 70) + "..."}
+      <p className="text-textColor/50 min-h-[45px] text-sm">
+        {content?.substring(3, 42) + "..."}
       </p>
       <div className="flex justify-between items-center">
         <div onClick={(e)=>copyToClipboard(e)} className="mt-4 rounded-md hover:bg-primary/20 flex justify-center items-center p-1">

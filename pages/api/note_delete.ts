@@ -3,7 +3,7 @@ import axios from "axios";
 
 const handleDelete = async (req: any, res: any) => {
   const { id } = req.body;
-  const url = `${BASE_URL}note/delete${id}`;
+  const url = `${BASE_URL}note/delete/${id}`;
   try {
     await axios.delete(url).then((response) => {
       return res.json({ data: response?.data });
