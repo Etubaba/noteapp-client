@@ -4,7 +4,7 @@ import DetailsComponent from "./common/DetailsComponent";
 
 const HowItWorks = (): JSX.Element => {
   return (
-    <div className="px-12 mt-8 py-6 ">
+    <div className="md:px-12 px-6 mt-8 py-6 ">
       <h2 className="font-bold text-center mb-4 text-lg md:text-3xl">How it works</h2>
       <p className="text-center mb-6 text-sm md:text-base text-black/70">
         It is a long established fact that a reader will be distracted by the
