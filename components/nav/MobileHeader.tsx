@@ -1,9 +1,11 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 import Toggle from "./Toggle";
 
 const MobileNav = () :JSX.Element=> {
   const [checked, setChecked] = useState(false);
+  const router=useRouter()
   return (
     <>
       <div
@@ -27,6 +29,7 @@ const MobileNav = () :JSX.Element=> {
             <p
               onClick={() => {
                 setChecked(false);
+                router.push('/login')
               }}
               className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
             >
@@ -35,6 +38,7 @@ const MobileNav = () :JSX.Element=> {
             <p
               onClick={() => {
                 setChecked(false);
+                 router.push('/')
               }}
               className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
             >

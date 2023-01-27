@@ -1,6 +1,12 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { BASE_URL } from "../../api/url";
 import { authProps } from "../../interface";
 import Button from "./Button";
+import {useDispatch} from 'react-redux'
+import { AppDispatch } from "../../features/store";
+import { handleLogin } from "../../features/noteSlice";
+import Router, { useRouter } from "next/router";
    
 const AuthComponent = ({signup}:authProps) => {
   const [fullName, setFullName] = useState("");
@@ -8,8 +14,37 @@ const AuthComponent = ({signup}:authProps) => {
   const [password, setPassword] = useState("");
 
   const  text:string=signup===undefined? 'Login' : 'Signup';
+  const dispatch: AppDispatch= useDispatch()
+  const router = useRouter()
 
-  
+
+  const handleRegister=async()=>{
+   try{ await axios.post('/api/register',{full_name:fullName,email,password})
+    .then(res=>{
+       console.log(res.data)
+      if(res.data.data.status){
+       
+        router.push('/login')
+      }
+    })}catch(err:any){
+        console.log(err.message)
+    }
+  }
+
+
+  const handleSignin=async()=>{
+     try{ 
+        await axios.post('/api/login',{email,password})
+    .then(res=>{
+        if(res.data.data.staus){
+       dispatch(handleLogin(true))
+        }
+    })}catch(err:any){
+        console.log(err.message)
+    }
+  }
+
+
   return (
     <div className="bg-white shadow-lg animate__fadeIn animate__animated rounded-md w-full md:w-[500px] p-7">
       <p className="text-center text-lg text-[#1e202a] font-semibold">
@@ -59,7 +94,7 @@ const AuthComponent = ({signup}:authProps) => {
       </div>
 
 
-      <Button onClick={()=>console.log()}  text={text}/>
+      <Button onClick={()=>{signup?handleRegister():handleSignin()}}  text={text}/>
     </div>
   );
 };

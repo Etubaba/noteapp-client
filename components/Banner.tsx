@@ -38,7 +38,7 @@ const Banner = (props: Props) => {
                      </button>
                   </div>
                </div>
-               <div className='flex justify-center md:justify-start space-x-2 md:space-x-4'>
+               <div className='flex justify-center md:just space-x-2 md:space-x-4'>
                   <div className='flex flex-col px-2 md:px-6 border border-purple-600 justify-center items-center py-1 md:py-2 rounded-md'>
                      <div className='flex items-center space-x-2'>
                         <MdWorkOutline className='text-white w-5 h-5' />
@@ -62,7 +62,7 @@ const Banner = (props: Props) => {
                   </div>
                </div>
             </div>
-            <div className='w-[40%] hidden lg:inline-block pt-3 '>
+            <div className='w-[40%] hidden md:inline-block pt-3 '>
                <div className='relative w-[430px] h-[440px]'>
                   <Image src={BannerImage} layout='fill' alt='' />
                </div>
