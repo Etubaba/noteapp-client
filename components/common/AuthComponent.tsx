@@ -7,8 +7,9 @@ const AuthComponent = ({signup}:authProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   const  text:string=signup===undefined? 'Login' : 'Signup';
+
+  
   return (
     <div className="bg-white shadow-lg animate__fadeIn animate__animated rounded-md w-full md:w-[500px] p-7">
       <p className="text-center text-lg text-[#1e202a] font-semibold">

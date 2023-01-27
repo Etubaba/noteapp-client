@@ -1,3 +1,4 @@
+import React from "react";
 import { IconType } from "react-icons/lib/esm/iconBase";
 
 export type detailsProps = {
@@ -20,3 +21,18 @@ export type bottonProps = {
   text: string;
   onClick: any;
 };
+
+export interface IUser {
+  full_name: string;
+  email: string;
+}
+export interface IInitialState {
+  resizeDiv: boolean;
+  isLoggedIn: boolean | null;
+  userData: IUser | null;
+  //   productId: string | null;
+}
+
+export interface layoutProps {
+  children: React.ReactNode;
+}
