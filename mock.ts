@@ -6,7 +6,8 @@ import { detailsProps } from "./interface";
 export const details: detailsProps[] = [
   {
     title: "Create Account",
-    content: "Firstly  to create note you have to create an account",
+    content:
+      "Firstly  to create note you have to create an account, best experience",
     color: "bg-orange",
 
     Icon: BsPerson,
@@ -14,13 +15,14 @@ export const details: detailsProps[] = [
   {
     title: "Sign In",
     content:
-      "Ensure u sign in to get the best experience,Login with your details",
+      "Ensure u sign in to get the best experience,Login with your credentials and enjoy the best",
 
     Icon: AiOutlineLogin,
   },
   {
     title: "Start creating Notes",
-    content: "Firstly  to create note you have to create an account",
+    content:
+      "Start creating notes, to create note you have to create an account",
     color: "bg-green-600",
 
     Icon: MdOutlineEventNote,
