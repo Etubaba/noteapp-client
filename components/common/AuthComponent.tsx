@@ -5,7 +5,7 @@ import { authProps } from "../../interface";
 import Button from "./Button";
 import {useDispatch} from 'react-redux'
 import { AppDispatch } from "../../features/store";
-import { handleLogin } from "../../features/noteSlice";
+import { handleLogin, handleUserData } from "../../features/noteSlice";
 import Router, { useRouter } from "next/router";
    
 const AuthComponent = ({signup}:authProps) => {
@@ -38,6 +38,7 @@ const AuthComponent = ({signup}:authProps) => {
     .then(res=>{
         if(res.data.data.staus){
        dispatch(handleLogin(true))
+       dispatch(handleUserData(res.data.data.user))
         }
     })}catch(err:any){
         console.log(err.message)
