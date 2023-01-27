@@ -20,9 +20,9 @@ const isLoggedIn:TypedUseSelectorHook<RootState>=useSelector((state:any)=>state.
   if (!isLoggedIn ) return <></>;
 
 
-  // console.log('lloll',isLoggedIn)
+  
   return (
-    <div className='md:p-10 p-4'> 
+    <div className=' p-4'> 
     <div className='flex mb-8 justify-between items-center'>
       <p className="md:text-lg  text-sm tracking-wide font-semibold">
           Manage Notes

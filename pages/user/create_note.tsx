@@ -46,7 +46,7 @@ const Create_note = (): JSX.Element => {
   };
 
   return (
-    <div className="md:p-10 p-3">
+    <div className=" p-3">
       <div className="flex mb-8  justify-between items-center">
         <p className="md:text-lg text-sm tracking-wide font-semibold">
           Create Notes

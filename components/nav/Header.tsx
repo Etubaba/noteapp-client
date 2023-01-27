@@ -2,9 +2,13 @@ import React from 'react'
 import {BsPerson} from 'react-icons/bs'
 import {AiOutlineLogin} from 'react-icons/ai'
 import { NextRouter, useRouter } from 'next/router'
+import {useSelector,TypedUseSelectorHook} from 'react-redux'
+import { RootState } from '../../features/store'
 
 const Header = () => {
    const router:NextRouter=useRouter()
+   const isLoggedIn=useSelector((state:any)=>state.note.isLoggedIn)
+   const user=useSelector((state:any)=>state.note.userData)
   return (
     <div className=" px-8 py-3 z-50 hidden font-sans md:flex shadow-sm bg-white sticky top-0 justify-between items-cente">
          <span onClick={()=>router.push('/')} className='flex'>
@@ -14,7 +18,8 @@ const Header = () => {
 
 
 
-         <div className='flex flex-row items-center space-x-2'>
+      { isLoggedIn ?
+      <div className='text-sm text-primary flex space-x-2'> <p >Hi,</p> <p>{user?.full_name}</p></div>:  <div className='flex flex-row items-center space-x-2'>
                <button onClick={()=>router.push('/signup')} className='flex hover:bg-slate-100 flex-row items-center bg-white border border-gray-400 px-2 py-1 space-x-1 text-sm rounded-md'>
                   <BsPerson />
                
@@ -27,7 +32,7 @@ const Header = () => {
                   <span>Login</span>
                 
                </button>
-            </div>
+            </div>}
     </div>
   )
 }
