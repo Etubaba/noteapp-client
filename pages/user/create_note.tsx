@@ -1,10 +1,11 @@
 import React from 'react'
 import Layout from '../../components/userlayout/Layout'
 
-const Create_note = () => {
+const Create_note = (): JSX.Element => {
   return (
-    <div>C</div>
+    <div>Coooioioioi</div>
   )
 }
-Create_note.getLayout=Layout
+
+Create_note.getLayout =Layout
 export default Create_note

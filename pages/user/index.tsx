@@ -1,10 +1,10 @@
 import React from 'react'
 import Layout from '../../components/userlayout/Layout'
 
-const Index = () => {
+const Index = ():JSX.Element => {
   return (
     <div>Index</div>
   )
 }
-Index.getLayout=Layout
+
 export default Index

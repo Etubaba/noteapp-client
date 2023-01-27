@@ -34,5 +34,5 @@ export interface IInitialState {
 }
 
 export interface layoutProps {
-  children: React.ReactNode;
+  children: JSX.Element;
 }

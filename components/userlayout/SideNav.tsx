@@ -1,21 +1,10 @@
-import { FaFileInvoice, FaUserCircle } from "react-icons/fa";
-import { BiSupport } from "react-icons/bi";
-import {
-  MdArrowForwardIos,
-  MdPayment,
-  MdOutlineAllInclusive,
-  MdOutlineDashboard,
-  MdOutlineAccountBalanceWallet,
-} from "react-icons/md";
-import { RiLogoutCircleRFill, RiSecurePaymentFill } from "react-icons/ri";
-import { AiOutlineUsergroupAdd, AiOutlineHome } from "react-icons/ai";
-import { HiOutlineSpeakerphone } from "react-icons/hi";
+
 import { BiLogOut } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
-import { TbCar, TbWallet } from "react-icons/tb";
+import { GiNotebook } from "react-icons/gi";
+import {MdOutlineStickyNote2} from 'react-icons/md'
 import SideNavLink from "./SideNavLink";
 import { useState } from "react";
-import classNames from "classnames";
+// import classNames from "classnames";
 //import { useRouter } from "next/router";
 
 const SideNav = () => {
@@ -28,49 +17,17 @@ const SideNav = () => {
   const sideNavList = [
     {
       id: 1,
-      iconName: <AiOutlineHome />,
-      text: "Home",
-      href: "",
+      iconName: <GiNotebook />,
+      text: "My Notes",
+      href: "/user",
     },
     {
       id: 2,
-      iconName: <CgProfile />,
-      text: "Profile",
-      href: "/profile",
+      iconName: <MdOutlineStickyNote2 />,
+      text: "Create Notes",
+      href: "/create_note",
     },
 
-    {
-      id: 3,
-      iconName: <TbCar />,
-      text: "My Trips",
-      href: "/trips_history",
-    },
-    {
-      id: 6,
-      iconName: <HiOutlineSpeakerphone />,
-      text: "Promotion",
-      href: "/promotions",
-    },
-
-    {
-      id: 7,
-      iconName: <MdOutlineAccountBalanceWallet />,
-      text: "Wallet",
-      href: "/wallet",
-    },
-
-    {
-      id: 10,
-      iconName: <AiOutlineUsergroupAdd />,
-      text: "Referrals",
-      href: "/referral",
-    },
-    {
-      id: 11,
-      iconName: <BiSupport />,
-      text: "Support",
-      href: "/support",
-    },
   ];
 
   return (
@@ -84,12 +41,12 @@ const SideNav = () => {
             <div>{sideNavList[currentIndex]?.iconName}</div>
             <div className="capitalize">{sideNavList[currentIndex]?.text}</div>
           </div>
-          <div
+          {/* <div
         
             className={classNames("ml-auto rotate-90", { hidden: showMenu })}
           >
             <MdArrowForwardIos />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="h-screen">
@@ -97,7 +54,7 @@ const SideNav = () => {
           <SideNavLink
             iconName={sideNav.iconName}
             text={sideNav.text}
-            href={`/rider_profile${sideNav.href}`}
+            href={`${sideNav.href}`}
             setIndex={setIndex}
             currentIndex={currentIndex}
             setMenu={setMenu}

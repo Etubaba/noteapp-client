@@ -6,13 +6,16 @@ import { IInitialState } from "../interface";
 const initialState: IInitialState = {
   resizeDiv: true,
   userData: null,
-  isLoggedIn: localStorage.getItem("tslogin")
-    ? JSON.parse(localStorage.getItem("tslogin") || "")
-    : false,
+  isLoggedIn:
+    typeof window !== "undefined"
+      ? localStorage.getItem("tslogin")
+        ? JSON.parse(localStorage.getItem("tslogin") || "")
+        : false
+      : false,
 };
 
 const noteSlice = createSlice({
-  name: "scud",
+  name: "note",
   initialState,
   reducers: {
     handleLogin: (state: IInitialState, action: PayloadAction<boolean>) => {

@@ -31,9 +31,9 @@ function Layout({ children }:layoutProps) {
             id="rider"
             className="w-full animate__animated hidden md:block animate__fadeInLeft shadow-md  fixed  border-r lg:h-full  lg:w-1/6 pb-24 bg-white"
           >
-            <SideNav />
+            <SideNav /> 
           </span>
-        )}
+         )}
         <section
           className={
             divResize
