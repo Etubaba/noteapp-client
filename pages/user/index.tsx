@@ -1,12 +1,26 @@
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useEffect } from 'react'
+import {useSelector ,TypedUseSelectorHook} from 'react-redux'
 import Button from '../../components/common/Button'
 import NoteComponent from '../../components/common/NoteComponent'
 import Layout from '../../components/userlayout/Layout'
+import { RootState } from '../../features/store'
 import { note } from '../../mock'
 
 const Index = ():JSX.Element => {
   const router=useRouter()
+
+const isLoggedIn:TypedUseSelectorHook<RootState>=useSelector((state:any)=>state.note.isLoggedIn)
+
+    useEffect(() => {
+    if (!isLoggedIn )
+      router.push("/", undefined, { shallow: true });
+  }, []);
+
+  if (!isLoggedIn ) return <></>;
+
+
+  console.log('lloll',isLoggedIn)
   return (
     <div className='md:p-10 p-4'> 
     <div className='flex mb-8 justify-between items-center'>
