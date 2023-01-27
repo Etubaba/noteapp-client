@@ -160,7 +160,7 @@ const router=useRouter()
        <Modal onClose={(e:React.MouseEvent) => {e.stopPropagation();setShareModal(false)}} open={shareModal}>
         <div className="justify-center mt-1 space-x-3 mr-12 flex items-center">
           <BsCheckCircle className="text-green-600" />
-          <p>Copied to clipboard</p>
+          <p>Link Copied to clipboard</p>
         </div>
       </Modal>
     </div>
