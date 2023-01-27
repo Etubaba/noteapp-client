@@ -22,12 +22,13 @@ const isLoggedIn=useSelector((state:RootState)=>state.note.isLoggedIn)
 
   if (!isLoggedIn ) return <></>;
 
-const user=useSelector((state:any)=>state.note.userData)
+const user=useSelector((state:RootState)=>state.note.userData)
+const dependant=useSelector((state:RootState)=>state.note.dependant)
 
 
   const url=`api/notelist/${user?.id}`
 
-  const {fetchData,loading}=useFetch(url)
+  const {fetchData,loading}=useFetch(url,dependant)
 
 
   
@@ -51,12 +52,12 @@ const user=useSelector((state:any)=>state.note.userData)
           </div>
           <p className="text-lg font-semibold">No Note yet</p>
           <p className="text-textColor text-sm">
-            Hi, {user.full_name}, you have not created any note yet,
+            Hi, {user?.full_name}, you have not created any note yet,
           </p>
         </div>:
        <div className="bg-white mb-8 p-6 border grid-cols-1 rounded-lg grid md:grid-cols-2 lg:grid-cols-3 gap-5 ">
         {fetchData?.map((item, idx) => (
-          <NoteComponent key={idx} createdAt={item?.createdAt} content={item?.content} title={item?.title} />
+          <NoteComponent key={idx} id={item.id} createdAt={item?.createdAt} content={item?.content} title={item?.title} />
         ))}
       </div>}
     </div>

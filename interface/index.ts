@@ -32,6 +32,7 @@ export interface IInitialState {
   isLoggedIn: boolean | null;
   userData: IUser | null;
   noteContent: string;
+  dependant: number;
   //   productId: string | null;
 }
 
@@ -40,6 +41,7 @@ export interface layoutProps {
 }
 
 export type NoteProps = {
+  id: number;
   title: string;
   content: string;
   createdAt: string;
@@ -49,4 +51,11 @@ export interface IApiData {
   title: string;
   content: string;
   createdAt: string;
+}
+
+export interface IModal {
+  children: React.ReactNode;
+  title?: string;
+  open: boolean;
+  onClose: any;
 }
