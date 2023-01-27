@@ -57,7 +57,7 @@ const dependant=useSelector((state:RootState)=>state.note.dependant)
         </div>:
        <div className="bg-white mb-8 p-6 border grid-cols-1 rounded-lg grid md:grid-cols-2 lg:grid-cols-3 gap-5 ">
         {fetchData?.map((item, idx) => (
-          <NoteComponent key={idx} id={item.id} createdAt={item?.createdAt} content={item?.content} title={item?.title} />
+          <NoteComponent key={idx} slug={item.slug} id={item.id} createdAt={item?.createdAt} content={item?.content} title={item?.title} />
         ))}
       </div>}
     </div>

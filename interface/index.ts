@@ -44,10 +44,12 @@ export type NoteProps = {
   id: number;
   title: string;
   content: string;
+  slug: string;
   createdAt: string;
 };
 export interface IApiData {
   id: number;
+  slug: string;
   title: string;
   content: string;
   createdAt: string;
