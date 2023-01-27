@@ -52,8 +52,8 @@ const router=useRouter()
           
 
    //copy to clipboard
-  const copyToClipboard = () => {
-    // e.stopPropagation()
+  const copyToClipboard = (e:React.MouseEvent) => {
+    e.stopPropagation()
     const str=origin+`/note/link/${slug}`
     window.navigator.clipboard.writeText(str);
     setShareModal(true);
@@ -72,7 +72,7 @@ const router=useRouter()
         {content?.substring(3, 42) + "..."}
       </p>
       <div className="flex justify-between items-center">
-        <div onClick={copyToClipboard} className="mt-4 rounded-md hover:bg-primary/20 flex justify-center items-center p-1">
+        <div onClick={(e:React.MouseEvent)=>copyToClipboard(e)} className="mt-4 rounded-md hover:bg-primary/20 flex justify-center items-center p-1">
           <BsShare className="text-orange" />
         </div>
         <span className="flex space-x-3 justify-end mt-4">
@@ -149,7 +149,7 @@ const router=useRouter()
         </div>
       </Modal>
 
-       <Modal onClose={() => setShareModal(false)} open={shareModal}>
+       <Modal onClose={(e:React.MouseEvent) => {e.stopPropagation();setShareModal(false)}} open={shareModal}>
         <div className="justify-center mt-1 space-x-3 mr-12 flex items-center">
           <BsCheckCircle className="text-green-600" />
           <p>Copied to clipboard</p>
