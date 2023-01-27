@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import Button from "../../components/common/Button";
 import Layout from "../../components/userlayout/Layout";
 import MyStatefulEditor from "../../components/common/Editor";
-import { useSelector, TypedUseSelectorHook } from "react-redux";
+import { useSelector, TypedUseSelectorHook ,useDispatch} from "react-redux";
 import { RootState } from "../../features/store";
+import axios from "axios";
+import { handleNoteContent } from "../../features/noteSlice";
 
 const Create_note = (): JSX.Element => {
   const [title, setTitle] = useState("");
@@ -12,23 +14,36 @@ const Create_note = (): JSX.Element => {
   const isLoggedIn: TypedUseSelectorHook<RootState> = useSelector(
     (state: any) => state.note.isLoggedIn
   );
-  const user_id: TypedUseSelectorHook<RootState> = useSelector(
-    (state: any) => state.note.isLoggedIn.id
+  const user_id = useSelector(
+    (state: any) => state.note.userData
   );
+  const noteContent: TypedUseSelectorHook<RootState> = useSelector(
+    (state: any) => state.note.noteContent
+  );
+  const dispatch=useDispatch()
 
-  
+    useEffect(() => {
+      if (!isLoggedIn) router.push("/login", undefined, { shallow: true });
+    }, []);
 
-//   useEffect(() => {
-//     if (!isLoggedIn) router.push("/", undefined, { shallow: true });
-//   }, []);
+    if (!isLoggedIn) return <></>;
 
-//   if (!isLoggedIn) return <></>;
+ 
 
-
-
-
-
-
+  const sendNote = async () => {
+    try {
+      await axios
+        .post("/api/create_note", { title, content: noteContent, user_id:user_id?.id})
+        .then((res) => {
+           if(res.data.data.status){
+            setTitle('')
+            dispatch(handleNoteContent(''))
+           }
+        });
+    } catch (err) {
+        console.log(err);
+    }
+  };
 
   return (
     <div className="md:p-10 p-3">
@@ -65,9 +80,8 @@ const Create_note = (): JSX.Element => {
           </div>
         </div>
 
-
         <div className=" flex items-center justify-end">
-            <Button  onClick={()=>console.log('')} text="Save"/>
+          <Button onClick={sendNote} text="Save" />
         </div>
       </div>
     </div>

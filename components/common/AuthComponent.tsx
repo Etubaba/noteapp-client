@@ -36,9 +36,10 @@ const AuthComponent = ({signup}:authProps) => {
      try{ 
         await axios.post('/api/login',{email,password})
     .then(res=>{
-        if(res.data.data.staus){
+        if(res.data.data.status){
        dispatch(handleLogin(true))
        dispatch(handleUserData(res.data.data.user))
+       router.push('/user')
         }
     })}catch(err:any){
         console.log(err.message)

@@ -12,12 +12,12 @@ const Index = ():JSX.Element => {
 
 const isLoggedIn:TypedUseSelectorHook<RootState>=useSelector((state:any)=>state.note.isLoggedIn)
 
-  //   useEffect(() => {
-  //   if (!isLoggedIn )
-  //     router.push("/", undefined, { shallow: true });
-  // }, []);
+    useEffect(() => {
+    if (!isLoggedIn )
+      router.push("/login", undefined, { shallow: true });
+  }, []);
 
-  // if (!isLoggedIn ) return <></>;
+  if (!isLoggedIn ) return <></>;
 
 
   // console.log('lloll',isLoggedIn)
