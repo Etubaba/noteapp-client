@@ -81,7 +81,11 @@ const Create_note = (): JSX.Element => {
         </div>
 
         <div className=" flex items-center justify-end">
-          <Button onClick={sendNote} text="Save" />
+            <div className="md:max-w-[600px] ">
+                <Button onClick={sendNote} text="Save" />
+                
+            </div>
+          
         </div>
       </div>
     </div>

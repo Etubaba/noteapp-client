@@ -30,6 +30,10 @@ const MobileNav = () :JSX.Element=> {
               onClick={() => {
                 setChecked(false);
                 router.push('/login')
+                router.push('/')
+                 if(typeof window !='undefined'){
+                  localStorage.clear();
+                 }
               }}
               className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
             >
@@ -39,6 +43,9 @@ const MobileNav = () :JSX.Element=> {
               onClick={() => {
                 setChecked(false);
                  router.push('/')
+                 if(typeof window !='undefined'){
+                  localStorage.clear();
+                 }
               }}
               className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
             >
