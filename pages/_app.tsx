@@ -3,16 +3,14 @@ import type { AppProps } from "next/app";
 import Header from "../components/nav/Header";
 import MobileNav from "../components/nav/MobileHeader";
 import Footer from "../components/Footer";
-// import Layout from "../components/userlayout/Layout";
+
 import { Provider } from "react-redux";
 import { store } from "../features/store";
 import { useRouter } from "next/router";
 import { layoutProps } from "../interface";
 import { ReactNode } from 'react';
 import "react-quill/dist/quill.snow.css";
-import { SnackbarProvider } from "notistack";
-
-
+// import { SnackbarProvider } from "notistack";
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -29,6 +27,8 @@ const router=useRouter()
   return (
     <div>
       <Provider store={store}>
+        {/* <SnackbarProvider maxSnack={3}> */}
+       
       <Header />
       <MobileNav />
       
@@ -37,6 +37,8 @@ const router=useRouter()
         </Layout>
       
       {!checkPath()&&<Footer />}
+
+       {/* </SnackbarProvider> */}
       </Provider>
     </div>
   );

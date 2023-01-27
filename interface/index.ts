@@ -23,6 +23,7 @@ export type bottonProps = {
 };
 
 export interface IUser {
+  id: string;
   full_name: string;
   email: string;
 }
@@ -43,3 +44,9 @@ export type NoteProps = {
   content: string;
   createdAt: string;
 };
+export interface IApiData {
+  id: number;
+  title: string;
+  content: string;
+  createdAt: string;
+}

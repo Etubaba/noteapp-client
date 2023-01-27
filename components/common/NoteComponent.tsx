@@ -8,21 +8,25 @@ import { NoteProps } from '../../interface'
 
 const NoteComponent = ({title,content,createdAt}:NoteProps) => {
 
-   
+   const date =new Date(createdAt)
+   const time=date.toDateString()
+  const year=date.getFullYear()+''
+
+   const formatedTime=time.replace(year,'')
   return (
      <div
     
-      className="bg-[#F6F7FF] hover:border-scudGreen border p-4 rounded-lg"
+      className="bg-[#F6F7FF] h-[10hv] hover:border-scudGreen border p-4 rounded-lg"
     >
       {" "}
       <div className="flex mb-5 items-center justify-between">
         <div className="flex">
           {/* <img alt="" className="w-10 rounded-full h-10" src={"/photo.png"} /> */}
-          <p className="font-bold">{title}</p>
+          <p className="font-bold">{title.substring(0,16)+'...'}</p>
         </div>
-        <p className="text-xs text-textColor/50">{createdAt}</p>
+        <p className="text-xs text-textColor/50">{formatedTime}</p>
       </div>
-      <p className="text-textColor/50 text-sm">{content}</p>
+      <p className="text-textColor/50 text-sm">{content?.substring(3,70)+'...'}</p>
 
 
 

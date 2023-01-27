@@ -28,3 +28,7 @@ const Note= () => {
 }
 
 export default Note
+
+// async function name(params:type) {
+  
+// }

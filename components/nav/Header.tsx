@@ -7,8 +7,8 @@ import { RootState } from '../../features/store'
 
 const Header = () => {
    const router:NextRouter=useRouter()
-   const isLoggedIn=useSelector((state:any)=>state.note.isLoggedIn)
-   const user=useSelector((state:any)=>state.note.userData)
+   const isLoggedIn=useSelector((state:RootState)=>state.note.isLoggedIn)
+   const user=useSelector((state:RootState)=>state.note.userData)
   return (
     <div className=" px-8 py-3 z-50 hidden font-sans md:flex shadow-sm bg-white sticky top-0 justify-between items-cente">
          <span onClick={()=>router.push('/')} className='flex'>
