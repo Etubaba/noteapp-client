@@ -1,18 +1,18 @@
-import axios from 'axios'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Banner from '../components/Banner'
-import styles from '../styles/Home.module.css'
+import axios from "axios";
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import Banner from "../components/Banner";
+import HowItWorks from "../components/HowItWorks";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-
   return (
-    <div className='bg-green-600' >
-<Banner/>
-     
+    <div className="">
+      <Banner />
+      <HowItWorks />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
