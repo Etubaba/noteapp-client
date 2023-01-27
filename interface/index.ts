@@ -67,3 +67,4 @@ type IDetails = {
 export interface INote {
   details: IDetails;
 }
+export type EventProps = React.MouseEvent<HTMLButtonElement>;

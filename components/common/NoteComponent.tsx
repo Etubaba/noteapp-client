@@ -6,7 +6,7 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsShare ,BsCheckCircle} from "react-icons/bs";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { RootState } from "../../features/store";
-import { NoteProps } from "../../interface";
+import { EventProps, NoteProps } from "../../interface";
 import Button from "./Button";
 import Modal from "./Modal";
 import { useDispatch } from "react-redux";
@@ -52,9 +52,9 @@ const router=useRouter()
           
 
    //copy to clipboard
-  const copyToClipboard = (e:any) => {
-    e.stopPropagation()
-    const str=origin+`note/link/${slug}`
+  const copyToClipboard = () => {
+    // e.stopPropagation()
+    const str=origin+`/note/link/${slug}`
     window.navigator.clipboard.writeText(str);
     setShareModal(true);
   };
@@ -72,7 +72,7 @@ const router=useRouter()
         {content?.substring(3, 42) + "..."}
       </p>
       <div className="flex justify-between items-center">
-        <div onClick={(e)=>copyToClipboard(e)} className="mt-4 rounded-md hover:bg-primary/20 flex justify-center items-center p-1">
+        <div onClick={copyToClipboard} className="mt-4 rounded-md hover:bg-primary/20 flex justify-center items-center p-1">
           <BsShare className="text-orange" />
         </div>
         <span className="flex space-x-3 justify-end mt-4">
