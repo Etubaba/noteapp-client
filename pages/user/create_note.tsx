@@ -12,12 +12,23 @@ const Create_note = (): JSX.Element => {
   const isLoggedIn: TypedUseSelectorHook<RootState> = useSelector(
     (state: any) => state.note.isLoggedIn
   );
+  const user_id: TypedUseSelectorHook<RootState> = useSelector(
+    (state: any) => state.note.isLoggedIn.id
+  );
 
-  useEffect(() => {
-    if (!isLoggedIn) router.push("/", undefined, { shallow: true });
-  }, []);
+  
 
-  if (!isLoggedIn) return <></>;
+//   useEffect(() => {
+//     if (!isLoggedIn) router.push("/", undefined, { shallow: true });
+//   }, []);
+
+//   if (!isLoggedIn) return <></>;
+
+
+
+
+
+
 
   return (
     <div className="md:p-10 p-3">
@@ -52,6 +63,11 @@ const Create_note = (): JSX.Element => {
           <div className="flex justify-center space-x-10 w-full mt-5 mb-40 md:mb-20">
             <MyStatefulEditor />
           </div>
+        </div>
+
+
+        <div className=" flex items-center justify-end">
+            <Button  onClick={()=>console.log('')} text="Save"/>
         </div>
       </div>
     </div>

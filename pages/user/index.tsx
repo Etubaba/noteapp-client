@@ -12,15 +12,15 @@ const Index = ():JSX.Element => {
 
 const isLoggedIn:TypedUseSelectorHook<RootState>=useSelector((state:any)=>state.note.isLoggedIn)
 
-    useEffect(() => {
-    if (!isLoggedIn )
-      router.push("/", undefined, { shallow: true });
-  }, []);
+  //   useEffect(() => {
+  //   if (!isLoggedIn )
+  //     router.push("/", undefined, { shallow: true });
+  // }, []);
 
-  if (!isLoggedIn ) return <></>;
+  // if (!isLoggedIn ) return <></>;
 
 
-  console.log('lloll',isLoggedIn)
+  // console.log('lloll',isLoggedIn)
   return (
     <div className='md:p-10 p-4'> 
     <div className='flex mb-8 justify-between items-center'>
@@ -44,4 +44,5 @@ const isLoggedIn:TypedUseSelectorHook<RootState>=useSelector((state:any)=>state.
   )
 }
 
+Index.getLayout = Layout;
 export default Index

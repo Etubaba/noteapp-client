@@ -1,14 +1,11 @@
 import React from 'react'
 import {FiEdit} from 'react-icons/fi'
 import {RiDeleteBin6Line} from 'react-icons/ri'
+import { NoteProps } from '../../interface'
 
 
 
-type NoteProps={
-    title:string,
-    content:string
-    createdAt:string
-}
+
 const NoteComponent = ({title,content,createdAt}:NoteProps) => {
 
    

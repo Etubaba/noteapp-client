@@ -5,6 +5,7 @@ import { IInitialState, IUser } from "../interface";
 
 const initialState: IInitialState = {
   resizeDiv: true,
+  noteContent: "",
   userData:
     typeof window !== "undefined"
       ? localStorage.getItem("user")
@@ -31,13 +32,23 @@ const noteSlice = createSlice({
       state.userData = action.payload;
       localStorage.setItem("user", JSON.stringify(state.userData));
     },
+    handleNoteContent: (
+      state: IInitialState,
+      action: PayloadAction<string>
+    ) => {
+      state.noteContent = action.payload;
+    },
     handleDivResize: (state: IInitialState, action: PayloadAction<boolean>) => {
       state.isLoggedIn = action.payload;
     },
   },
 });
 
-export const { handleLogin, handleUserData, handleDivResize } =
-  noteSlice.actions;
+export const {
+  handleLogin,
+  handleUserData,
+  handleNoteContent,
+  handleDivResize,
+} = noteSlice.actions;
 
 export default noteSlice.reducer;

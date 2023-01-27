@@ -30,9 +30,16 @@ export interface IInitialState {
   resizeDiv: boolean;
   isLoggedIn: boolean | null;
   userData: IUser | null;
+  noteContent: string;
   //   productId: string | null;
 }
 
 export interface layoutProps {
   children: JSX.Element;
 }
+
+export type NoteProps = {
+  title: string;
+  content: string;
+  createdAt: string;
+};
