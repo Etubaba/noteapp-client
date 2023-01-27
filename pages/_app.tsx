@@ -7,10 +7,10 @@ import Footer from "../components/Footer";
 import { Provider } from "react-redux";
 import { store } from "../features/store";
 import { useRouter } from "next/router";
-import { NextComponentType, NextPage, NextPageContext } from "next";
 import { layoutProps } from "../interface";
 import { ReactNode } from 'react';
 import "react-quill/dist/quill.snow.css";
+import { SnackbarProvider } from "notistack";
 
 
 

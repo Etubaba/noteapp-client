@@ -11,17 +11,17 @@ import { layoutProps } from "../../interface";
 
 function Layout({ children }:layoutProps) {
   const divResize = useSelector((state:RootState) => state.note.resizeDiv);
-  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  // const router = useRouter();
+  const isLoggedIn = useSelector((state:RootState) => state.note.isLoggedIn);
+  const router = useRouter();
   typeof window !== "undefined"
     ? (document.body.style.overflow = "hidden")
     : null;
-  // useEffect(() => {
-  //   if (!isLoggedIn || isLoggedIn === "false")
-  //     router.push("/signin/rider-signin", undefined, { shallow: true });
-  // }, []);
+  useEffect(() => {
+    if (!isLoggedIn )
+      router.push("/signin/rider-signin", undefined, { shallow: true });
+  }, []);
 
-  // if (!isLoggedIn || isLoggedIn === "false") return <></>;
+  if (!isLoggedIn ) return <></>;
   return (
     <div className={"w-full overflow-hidden"}>
      

@@ -30,7 +30,7 @@ const MobileNav = () :JSX.Element=> {
               onClick={() => {
                 setChecked(false);
                 router.push('/login')
-                router.push('/')
+               
                  if(typeof window !='undefined'){
                   localStorage.clear();
                  }
@@ -42,14 +42,12 @@ const MobileNav = () :JSX.Element=> {
             <p
               onClick={() => {
                 setChecked(false);
-                 router.push('/')
-                 if(typeof window !='undefined'){
-                  localStorage.clear();
-                 }
+                 router.push('/signup')
+                
               }}
               className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
             >
-              <a href="#blog">Logout</a>
+              <a href="#blog">Register</a>
             </p>
            
           </div>
