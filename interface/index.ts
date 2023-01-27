@@ -61,3 +61,9 @@ export interface IModal {
   open: boolean;
   onClose: any;
 }
+type IDetails = {
+  data: NoteProps;
+};
+export interface INote {
+  details: IDetails;
+}

@@ -19,7 +19,7 @@ const NoteComponent = ({ id,slug, title, content, createdAt }: NoteProps) => {
   const [shareModal,setShareModal]=useState(false)
 
   const dispatch = useDispatch();
-
+const router=useRouter()
 
   const date = new Date(createdAt);
   const time = date.toDateString();
@@ -54,12 +54,12 @@ const NoteComponent = ({ id,slug, title, content, createdAt }: NoteProps) => {
    //copy to clipboard
   const copyToClipboard = (e:any) => {
     e.stopPropagation()
-    const str=origin+`/note/${slug}`
+    const str=origin+`/link/${slug}`
     window.navigator.clipboard.writeText(str);
     setShareModal(true);
   };
   return (
-    <div className="bg-[#F6F7FF] h-[10hv] hover:border-scudGreen border p-4 rounded-lg">
+    <div onClick={()=>router.push(`/note/${slug}`)} className="bg-[#F6F7FF] h-[10hv] hover:border-scudGreen border p-4 rounded-lg">
       {" "}
       <div className="flex mb-5 items-center justify-between">
         <div className="flex">
