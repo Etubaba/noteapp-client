@@ -44,6 +44,14 @@ const router=useRouter()
     }
   };
 
+
+
+  const handleEdit=(e:React.MouseEvent)=>{
+      e.stopPropagation()
+
+
+  }
+
    const origin =
         typeof window !== 'undefined' && window.location.origin
             ? window.location.origin
@@ -54,7 +62,7 @@ const router=useRouter()
    //copy to clipboard
   const copyToClipboard = (e:React.MouseEvent) => {
     e.stopPropagation()
-    const str=origin+`/note/link/${slug}`
+    const str=origin+`/note/${slug}`
     window.navigator.clipboard.writeText(str);
     setShareModal(true);
   };
@@ -77,7 +85,7 @@ const router=useRouter()
         </div>
         <span className="flex space-x-3 justify-end mt-4">
           <button
-            // onClick={() => copyToClipboard("scud.io/ref:jamesanderson")}
+            onClick={(e:React.MouseEvent)=>handleEdit(e)}
             className="bg-[#020648] border flex space-x-2 hover:to-blue-500   rounded-md p-1"
           >
             <FiEdit className="text-white" />
