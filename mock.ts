@@ -28,3 +28,102 @@ export const details: detailsProps[] = [
     Icon: MdOutlineEventNote,
   },
 ];
+
+export const note = [
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+  {
+    title: "Lorem Siminas Kumud",
+    content:
+      "Food is ofdksksksjjjjd hdhhdhd hdhhhd hdhdhhhd djdhhdhd dhdhhd dnddhhhd",
+    createdAt: "20-30-02",
+  },
+];

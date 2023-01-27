@@ -37,8 +37,8 @@ function Layout({ children }:layoutProps) {
         <section
           className={
             divResize
-              ? "w-full md:w-5/6    2xl:ml-[16rem] shadow-md md:ml-[13.3rem] md:fixed  bg-[#FDFDFF] h-full pb-24 overflow-y-scroll"
-              : "w-full   shadow-md   fixed  bg-[#FDFDFF] h-full pb-24 overflow-y-scroll"
+              ? "w-full md:w-5/6 p-5   2xl:ml-[16rem] shadow-md md:ml-[13.3rem] md:fixed  bg-[#FDFDFF] h-full pb-24 overflow-y-scroll"
+              : "w-full   shadow-md p-5  fixed  bg-[#FDFDFF] h-full pb-24 overflow-y-scroll"
           }
         >
           {children}

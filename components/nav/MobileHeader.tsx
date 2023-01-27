@@ -22,22 +22,15 @@ const MobileNav = () :JSX.Element=> {
                 `w-full sticky top-12  z-[900] flex flex-col text-center h-auto justify-center space-y-4 items-center bg-[#1B242F]`
             }
           >
-            <p
-              onClick={() => {
-               
-                setChecked(false);
-              }}
-              className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
-            >
-              Home
-            </p>
+            
+           
             <p
               onClick={() => {
                 setChecked(false);
               }}
               className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
             >
-              <a href="#about">About</a>
+              <a href="#project">Login</a>
             </p>
             <p
               onClick={() => {
@@ -45,24 +38,9 @@ const MobileNav = () :JSX.Element=> {
               }}
               className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
             >
-              <a href="#project">Portfolio</a>
+              <a href="#blog">Logout</a>
             </p>
-            <p
-              onClick={() => {
-                setChecked(false);
-              }}
-              className="hover:bg-[#1B242F]/30 text-white py-3 w-full rounded-md"
-            >
-              <a href="#blog">Blog</a>
-            </p>
-            <p
-              onClick={() => {
-                setChecked(false);
-              }}
-              className="hover:bg-[#1B2421B242F]/30 text-white py-3 w-full rounded-md"
-            >
-              <a href="#contact"> Contact</a>
-            </p>
+           
           </div>
      
       )}

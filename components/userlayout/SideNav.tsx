@@ -25,7 +25,7 @@ const SideNav = () => {
       id: 2,
       iconName: <MdOutlineStickyNote2 />,
       text: "Create Notes",
-      href: "/create_note",
+      href: "/user/create_note",
     },
 
   ];
