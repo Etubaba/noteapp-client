@@ -23,7 +23,7 @@ const Index = ():JSX.Element => {
 
         <div className="bg-white mb-8 p-6 border grid-cols-1 rounded-lg grid md:grid-cols-3 gap-5 ">
         {note.map((item, idx) => (
-          <NoteComponent createdAt={item.createdAt} content={item.content} title={item.title} />
+          <NoteComponent key={idx} createdAt={item.createdAt} content={item.content} title={item.title} />
         ))}
       </div>
     </div>
