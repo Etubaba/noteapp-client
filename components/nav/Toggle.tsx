@@ -1,11 +1,8 @@
 import React, { useState } from "react";
+import { menu } from "../../interface";
 
 
-type menu={
-    setChecked: React.Dispatch<React.SetStateAction<boolean>>
-    yes:boolean
 
-}
 
 
 const Toggle = ({ setChecked, yes }:menu) :JSX.Element=> {

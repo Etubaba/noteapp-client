@@ -6,3 +6,17 @@ export type detailsProps = {
   Icon: IconType;
   color?: string;
 };
+
+export type menu = {
+  setChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  yes: boolean;
+};
+
+export type authProps = {
+  signup?: boolean;
+};
+
+export type bottonProps = {
+  text: string;
+  onClick: any;
+};
