@@ -6,7 +6,7 @@ import MyStatefulEditor from "../../components/common/Editor";
 import { useSelector, TypedUseSelectorHook ,useDispatch} from "react-redux";
 import { RootState } from "../../features/store";
 import axios from "axios";
-import { handleNoteContent } from "../../features/noteSlice";
+import { handleEditNote, handleNoteContent } from "../../features/noteSlice";
 import { BASE_URL } from "../../api/url";
 import { toast } from "react-toastify";
 
@@ -54,10 +54,42 @@ const noteDetails=useSelector(
         
            }
         });
-    } catch (err) {
+    } catch (err:any) {
         console.log(err);
+          if(err.response){
+        toast.error(err.response.data.message,{
+        position:'bottom-left'
+        })
+      }
     }
   };
+
+
+
+
+
+
+  const updateNote=async()=>{
+    try{
+      await axios.patch(`${BASE_URL}note/update/${noteDetails.id}`,
+      { title, content: noteContent, user_id:user?.id})
+      .then(res=>{
+        if(res.data.status){
+          dispatch(handleEditNote({id:0,title:'',content:''}))
+          toast.success(res.data.message,{
+            position:'bottom-left'
+          })
+        }
+      })
+    }catch(err:any){
+        if(err.response){
+        toast.error(err.response.data.message,{
+        position:'bottom-left'
+        })
+      }
+    }
+
+  }
 
   return (
     <div className=" p-3">
@@ -96,7 +128,7 @@ const noteDetails=useSelector(
 
         <div className=" flex items-center justify-end">
             <div className="md:max-w-[600px] ">
-                <Button onClick={sendNote} text="Save" />
+                <Button onClick={noteDetails.id===0? sendNote:updateNote} text="Save" />
                 
             </div>
           

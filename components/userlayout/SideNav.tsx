@@ -1,14 +1,20 @@
-
 import { BiLogOut } from "react-icons/bi";
 import { GiNotebook } from "react-icons/gi";
-import {MdOutlineStickyNote2} from 'react-icons/md'
+import { MdOutlineStickyNote2 } from "react-icons/md";
 import SideNavLink from "./SideNavLink";
 import { useState } from "react";
+import { BsPersonX } from "react-icons/bs";
+import axios from "axios";
+import { BASE_URL } from "../../api/url";
+import { useSelector } from "react-redux";
+import { RootState } from "../../features/store";
+import Router, { useRouter } from "next/router";
+import { toast } from "react-toastify";
 // import classNames from "classnames";
 //import { useRouter } from "next/router";
 
 const SideNav = () => {
-  //const router = useRouter();
+  const router = useRouter();
   const [currentIndex, setIndex] = useState(0);
   const [showMenu, setMenu] = useState(false);
   const handleClick = () => {
@@ -27,9 +33,28 @@ const SideNav = () => {
       text: "Create Notes",
       href: "/user/create_note",
     },
-
   ];
 
+  const user = useSelector((state: RootState) => state.note.userData);
+
+  const deleteAcct = async () => {
+    try {
+      await axios.delete(`${BASE_URL}user/delete/${user?.id}`).then((res) => {
+        if (res.data.status) {
+          router.push("/");
+          toast.success("Account deleted successfully", {
+            position: "bottom-left",
+          });
+        }
+      });
+    } catch (err: any) {
+      if (err.response) {
+        toast.error(err.response.data.message, {
+          position: "bottom-left",
+        });
+      }
+    }
+  };
   return (
     <div className="py-4 pl-4  pr-4 relative md:static">
       <div
@@ -63,9 +88,19 @@ const SideNav = () => {
           />
         ))}
 
-        <div className="border-t w-[95%] cursor-pointer absolute bottom-40 md:mt-28 pt-4 flex space-x-3 ">
+        {/* <div className="border-t w-[95%] cursor-pointer absolute bottom-40 md:mt-28 pt-4 flex space-x-3 ">
           <BiLogOut className="text-red-600 hover:text-red-700 text-lg mt-1 " />
           <p className="text-red-600 hover:text-red-700">Logout</p>
+        </div> */}
+        <div className="w-[95%] border-t md:mt-28 pt-4 bottom-40 absolute">
+          <div onClick={()=>{router.push('/login');localStorage.clear()}} className="  cursor-pointer mb-3   flex space-x-3 ">
+            <BiLogOut className="text-red-600 hover:text-red-700 text-lg mt-1 " />
+            <p className="text-red-600 hover:text-red-700">Logout</p>
+          </div>
+          <div onClick={deleteAcct} className="  cursor-pointer    flex space-x-3 ">
+            <BsPersonX className="text-red-600 hover:text-red-700 text-lg mt-1 " />
+            <p className="text-red-600 hover:text-red-700">Delete Account</p>
+          </div>
         </div>
       </div>
     </div>
