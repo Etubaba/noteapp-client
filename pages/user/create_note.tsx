@@ -11,7 +11,12 @@ import { BASE_URL } from "../../api/url";
 import { toast } from "react-toastify";
 
 const Create_note = (): JSX.Element => {
-  const [title, setTitle] = useState("");
+
+const noteDetails=useSelector(
+    (state: RootState) => state.note.noteDetails
+  );
+
+  const [title, setTitle] = useState(noteDetails.title);
   const router = useRouter();
   const isLoggedIn = useSelector(
     (state: RootState) => state.note.isLoggedIn

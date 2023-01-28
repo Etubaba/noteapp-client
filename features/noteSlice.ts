@@ -5,7 +5,11 @@ import { EditNote, IInitialState, IUser } from "../interface";
 
 const initialState: IInitialState = {
   resizeDiv: true,
-  noteDetails: null,
+  noteDetails: {
+    id: 0,
+    title: "",
+    content: "",
+  },
   noteContent: "",
   dependant: 1,
   userData:
@@ -43,10 +47,7 @@ const noteSlice = createSlice({
     handleDivResize: (state: IInitialState, action: PayloadAction<boolean>) => {
       state.isLoggedIn = action.payload;
     },
-    handleEditNote: (
-      state: IInitialState,
-      action: PayloadAction<EditNote | null>
-    ) => {
+    handleEditNote: (state: IInitialState, action: PayloadAction<EditNote>) => {
       state.noteDetails = action.payload;
     },
     handleRefresh: (state: IInitialState) => {

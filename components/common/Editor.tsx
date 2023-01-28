@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { handleNoteContent } from "../../features/noteSlice";
-import { AppDispatch } from "../../features/store";
+import { AppDispatch, RootState } from "../../features/store";
 
 const QuillNoSSRWrapper = dynamic(import("react-quill"), {
   ssr: false,
@@ -51,7 +51,8 @@ const formats = [
 
 export default function Home() {
 
-
+const noteDetails=useSelector(
+    (state:RootState)=>state.note.noteDetails)
     const dispatch:AppDispatch=useDispatch()
   return (
     <QuillNoSSRWrapper
@@ -60,6 +61,7 @@ export default function Home() {
       placeholder="Write here..."
       formats={formats}
       theme="snow"
+      value={noteDetails.content}
       onChange={(e) => dispatch(handleNoteContent(e))}
     />
   );

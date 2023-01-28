@@ -40,7 +40,7 @@ export interface IInitialState {
   userData: IUser | null;
   noteContent: string;
   dependant: number;
-  noteDetails: EditNote | null;
+  noteDetails: EditNote;
 
   //   productId: string | null;
 }
