@@ -88,10 +88,6 @@ const SideNav = () => {
           />
         ))}
 
-        {/* <div className="border-t w-[95%] cursor-pointer absolute bottom-40 md:mt-28 pt-4 flex space-x-3 ">
-          <BiLogOut className="text-red-600 hover:text-red-700 text-lg mt-1 " />
-          <p className="text-red-600 hover:text-red-700">Logout</p>
-        </div> */}
         <div className="w-[95%] border-t md:mt-28 pt-4 bottom-40 absolute">
           <div onClick={()=>{router.push('/login');localStorage.clear()}} className="  cursor-pointer mb-3   flex space-x-3 ">
             <BiLogOut className="text-red-600 hover:text-red-700 text-lg mt-1 " />
