@@ -11,10 +11,10 @@ const Header = () => {
    const user=useSelector((state:RootState)=>state.note.userData)
   return (
     <div className=" px-8 py-3 z-50 hidden font-sans md:flex shadow-sm bg-white sticky top-0 justify-between items-cente">
-         <span onClick={()=>router.push('/')} className='flex'>
+         <div onClick={()=>router.push('/')} className='flex'>
             <h2 className='text-primary font-semibold'>Lamus</h2>
             <h2 className='text-orange font-semibold'>Note</h2>
-         </span>
+         </div>
 
 
 

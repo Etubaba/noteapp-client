@@ -8,6 +8,7 @@ import { RootState } from "../../features/store";
 import axios from "axios";
 import { handleNoteContent } from "../../features/noteSlice";
 import { BASE_URL } from "../../api/url";
+import { toast } from "react-toastify";
 
 const Create_note = (): JSX.Element => {
   const [title, setTitle] = useState("");
@@ -32,6 +33,9 @@ const Create_note = (): JSX.Element => {
  
 
   const sendNote = async () => {
+     if(title==='' || noteContent==='')return toast.error('Please,All fields are required',{
+        position:'bottom-left'
+        })
     try {
       await axios
         .post(`${BASE_URL}note/create`, { title, content: noteContent, user_id:user?.id})
@@ -39,6 +43,10 @@ const Create_note = (): JSX.Element => {
            if(res.data.status){
             setTitle('')
             dispatch(handleNoteContent(''))
+        toast.success('Note saved successfully',{
+        position:'bottom-left'
+        })
+        
            }
         });
     } catch (err) {

@@ -28,12 +28,20 @@ export interface IUser {
   email: string;
 }
 
+export interface EditNote {
+  id: number;
+  title: string;
+  content: string;
+}
+
 export interface IInitialState {
   resizeDiv: boolean;
   isLoggedIn: boolean | null;
   userData: IUser | null;
   noteContent: string;
   dependant: number;
+  noteDetails: EditNote | null;
+
   //   productId: string | null;
 }
 

@@ -10,7 +10,7 @@ import { EventProps, NoteProps } from "../../interface";
 import Button from "./Button";
 import Modal from "./Modal";
 import { useDispatch } from "react-redux";
-import { handleRefresh } from "../../features/noteSlice";
+import { handleEditNote, handleRefresh } from "../../features/noteSlice";
 import { useRouter } from "next/router";
 
 const NoteComponent = ({ id,slug, title, content, createdAt }: NoteProps) => {
@@ -48,8 +48,8 @@ const router=useRouter()
 
   const handleEdit=(e:React.MouseEvent)=>{
       e.stopPropagation()
-
-
+      dispatch(handleEditNote({id,title,content}))
+      router.push('/user/create_note')
   }
 
    const origin =

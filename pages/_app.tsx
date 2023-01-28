@@ -10,7 +10,9 @@ import { useRouter } from "next/router";
 import { layoutProps } from "../interface";
 import { ReactNode } from 'react';
 import "react-quill/dist/quill.snow.css";
-// import { SnackbarProvider } from "notistack";
+ import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -27,7 +29,7 @@ const router=useRouter()
   return (
     <div>
       <Provider store={store}>
-        {/* <SnackbarProvider maxSnack={3}> */}
+       
        
       <Header />
       <MobileNav />
@@ -35,10 +37,14 @@ const router=useRouter()
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        <ToastContainer 
+        
+        hideProgressBar={true}
+        theme="colored" />
       
       {!checkPath()&&<Footer />}
 
-       {/* </SnackbarProvider> */}
+      
       </Provider>
     </div>
   );

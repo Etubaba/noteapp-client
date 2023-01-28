@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
-import { IInitialState, IUser } from "../interface";
+import { EditNote, IInitialState, IUser } from "../interface";
 
 const initialState: IInitialState = {
   resizeDiv: true,
+  noteDetails: null,
   noteContent: "",
   dependant: 1,
   userData:
@@ -42,6 +43,12 @@ const noteSlice = createSlice({
     handleDivResize: (state: IInitialState, action: PayloadAction<boolean>) => {
       state.isLoggedIn = action.payload;
     },
+    handleEditNote: (
+      state: IInitialState,
+      action: PayloadAction<EditNote | null>
+    ) => {
+      state.noteDetails = action.payload;
+    },
     handleRefresh: (state: IInitialState) => {
       state.dependant += 1;
     },
@@ -54,6 +61,7 @@ export const {
   handleNoteContent,
   handleDivResize,
   handleRefresh,
+  handleEditNote,
 } = noteSlice.actions;
 
 export default noteSlice.reducer;

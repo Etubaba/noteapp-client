@@ -7,6 +7,7 @@ import {useDispatch} from 'react-redux'
 import { AppDispatch } from "../../features/store";
 import { handleLogin, handleUserData } from "../../features/noteSlice";
 import Router, { useRouter } from "next/router";
+import {toast} from 'react-toastify'
    
 const AuthComponent = ({signup}:authProps) => {
   const [fullName, setFullName] = useState("");
@@ -19,31 +20,57 @@ const AuthComponent = ({signup}:authProps) => {
 
 
   const handleRegister=async()=>{
+     if(email==='' || password==='' || fullName==='')return toast.error('Please,All fields are required',{
+        position:'bottom-left'
+        })
    try{ await axios.post(`${BASE_URL}user/create`,{full_name:fullName,email,password})
     .then(res=>{
       if(res.data.status){
-       
+        toast.success('Registration Successful',{
+        position:'bottom-left'
+        })
         router.push('/login')
+       
       }
     })}catch(err:any){
         console.log(err.message)
+          if(err.response){
+        toast.error(err.response.data.message,{
+        position:'bottom-left'
+        })
+      }
     }
   }
 
 
   const handleSignin=async()=>{
+    if(email==='' || password==='')return toast.error('Please,All fields are required',{
+        position:'bottom-left'
+        })
+
+
      try{ 
         await axios.post(`${BASE_URL}auth`,{email,password})
         // await axios.post('/api/login',{email,password})
     .then(res=>{
 
-      console.log(res.data.user);
+      // console.log(res.data.user);
         if(res.data.status){
        dispatch(handleLogin(true))
        dispatch(handleUserData(res.data?.user))
-       router.push('/user')
+
+        toast.success('Login Successful',{
+        position:'bottom-left'
+        
+        })
+        router.push('/user')
         }
     })}catch(err:any){
+      if(err.response){
+        toast.error(err.response.data.message,{
+        position:'bottom-left'
+        })
+      }
         console.log(err.message)
     }
   }
