@@ -1,14 +1,15 @@
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
-import {useSelector ,TypedUseSelectorHook} from 'react-redux'
+import {useSelector ,TypedUseSelectorHook, useDispatch} from 'react-redux'
 import { BASE_URL } from '../../api/url'
 import Button from '../../components/common/Button'
 import NoteComponent from '../../components/common/NoteComponent'
 import Layout from '../../components/userlayout/Layout'
-import { RootState } from '../../features/store'
+import { AppDispatch, RootState } from '../../features/store'
 import useFetch from '../../hooks/useFetch'
 import { note } from '../../mock'
 import {MdOutlineStickyNote2} from 'react-icons/md'
+import { handleEditNote } from '../../features/noteSlice'
 
 const Index = ():JSX.Element => {
   const router=useRouter()
@@ -25,7 +26,7 @@ const isLoggedIn=useSelector((state:RootState)=>state.note.isLoggedIn)
 const user=useSelector((state:RootState)=>state.note.userData)
 const dependant=useSelector((state:RootState)=>state.note.dependant)
 
-
+const dispatch:AppDispatch=useDispatch()
   const url=`api/notelist/${user?.id}`
 
   const {fetchData,loading}=useFetch(url,dependant)
@@ -40,7 +41,11 @@ const dependant=useSelector((state:RootState)=>state.note.dependant)
       </p>
 
       <div>
-        <Button onClick={()=>router.push('/user/create_note')} text='Create Note'/>
+        <Button onClick={()=>{
+          dispatch(handleEditNote({id:0,title:'',content:''}))
+          router.push('/user/create_note')
+          
+          }} text='Create Note'/>
       </div>
       </div>
 
