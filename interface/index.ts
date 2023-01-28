@@ -27,6 +27,7 @@ export interface IUser {
   full_name: string;
   email: string;
 }
+
 export interface IInitialState {
   resizeDiv: boolean;
   isLoggedIn: boolean | null;
@@ -67,4 +68,5 @@ type IDetails = {
 export interface INote {
   details: IDetails;
 }
+
 export type EventProps = React.MouseEvent<HTMLButtonElement>;

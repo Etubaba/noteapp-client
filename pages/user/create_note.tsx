@@ -7,18 +7,19 @@ import { useSelector, TypedUseSelectorHook ,useDispatch} from "react-redux";
 import { RootState } from "../../features/store";
 import axios from "axios";
 import { handleNoteContent } from "../../features/noteSlice";
+import { BASE_URL } from "../../api/url";
 
 const Create_note = (): JSX.Element => {
   const [title, setTitle] = useState("");
   const router = useRouter();
-  const isLoggedIn: TypedUseSelectorHook<RootState> = useSelector(
-    (state: any) => state.note.isLoggedIn
+  const isLoggedIn = useSelector(
+    (state: RootState) => state.note.isLoggedIn
   );
-  const user_id = useSelector(
-    (state: any) => state.note.userData
+  const user = useSelector(
+    (state: RootState) => state.note.userData
   );
-  const noteContent: TypedUseSelectorHook<RootState> = useSelector(
-    (state: any) => state.note.noteContent
+  const noteContent = useSelector(
+    (state: RootState) => state.note.noteContent
   );
   const dispatch=useDispatch()
 
@@ -33,9 +34,9 @@ const Create_note = (): JSX.Element => {
   const sendNote = async () => {
     try {
       await axios
-        .post("/api/create_note", { title, content: noteContent, user_id:user_id?.id})
+        .post(`${BASE_URL}note/create`, { title, content: noteContent, user_id:user?.id})
         .then((res) => {
-           if(res.data.data.status){
+           if(res.data.status){
             setTitle('')
             dispatch(handleNoteContent(''))
            }

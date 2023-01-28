@@ -19,10 +19,9 @@ const AuthComponent = ({signup}:authProps) => {
 
 
   const handleRegister=async()=>{
-   try{ await axios.post('/api/register',{full_name:fullName,email,password})
+   try{ await axios.post(`${BASE_URL}user/create`,{full_name:fullName,email,password})
     .then(res=>{
-       console.log(res.data)
-      if(res.data.data.status){
+      if(res.data.status){
        
         router.push('/login')
       }
@@ -34,11 +33,14 @@ const AuthComponent = ({signup}:authProps) => {
 
   const handleSignin=async()=>{
      try{ 
-        await axios.post('/api/login',{email,password})
+        await axios.post(`${BASE_URL}auth`,{email,password})
+        // await axios.post('/api/login',{email,password})
     .then(res=>{
-        if(res.data.data.status){
+
+      console.log(res.data.user);
+        if(res.data.status){
        dispatch(handleLogin(true))
-       dispatch(handleUserData(res.data.data.user))
+       dispatch(handleUserData(res.data?.user))
        router.push('/user')
         }
     })}catch(err:any){
