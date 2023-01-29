@@ -13,6 +13,7 @@ const AuthComponent = ({signup}:authProps) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const  text:string=signup===undefined? 'Login' : 'Signup';
   const dispatch: AppDispatch= useDispatch()
@@ -20,12 +21,17 @@ const AuthComponent = ({signup}:authProps) => {
 
 
   const handleRegister=async()=>{
-     if(email==='' || password==='' || fullName==='')return toast.error('Please,All fields are required',{
+
+    setLoading(true)
+     if(email==='' || password==='' || fullName===''){
+      setLoading(false)
+      return toast.error('Please,All fields are required',{
         position:'bottom-left'
-        })
+        })}
    try{ await axios.post(`${BASE_URL}user/create`,{full_name:fullName,email,password})
     .then(res=>{
       if(res.data.status){
+        setLoading(false)
         toast.success('Registration Successful',{
         position:'bottom-left'
         })
@@ -33,6 +39,7 @@ const AuthComponent = ({signup}:authProps) => {
        
       }
     })}catch(err:any){
+      setLoading(false)
         console.log(err.message)
           if(err.response){
         toast.error(err.response.data.message,{
@@ -44,16 +51,19 @@ const AuthComponent = ({signup}:authProps) => {
 
 
   const handleSignin=async()=>{
-    if(email==='' || password==='')return toast.error('Please,All fields are required',{
+    setLoading(true);
+    if(email==='' || password===''){
+      setLoading(false);
+      return toast.error('Please,All fields are required',{
         position:'bottom-left'
-        })
+        })}
 
 
      try{ 
         await axios.post(`${BASE_URL}auth`,{email,password})
         // await axios.post('/api/login',{email,password})
     .then(res=>{
-
+        setLoading(false)
       // console.log(res.data.user);
         if(res.data.status){
        dispatch(handleLogin(true))
@@ -66,6 +76,7 @@ const AuthComponent = ({signup}:authProps) => {
         router.push('/user')
         }
     })}catch(err:any){
+      setLoading(false)
       if(err.response){
         toast.error(err.response.data.message,{
         position:'bottom-left'
@@ -125,7 +136,7 @@ const AuthComponent = ({signup}:authProps) => {
       </div>
 
 
-      <Button onClick={()=>{signup?handleRegister():handleSignin()}}  text={text}/>
+      <Button loading={loading} onClick={()=>{signup?handleRegister():handleSignin()}}  text={text}/>
     </div>
   );
 };

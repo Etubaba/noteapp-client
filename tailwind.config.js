@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         primary: "#020648",
         orange: "#F24726",
+        textcolor: "#55575F",
       },
     },
   },

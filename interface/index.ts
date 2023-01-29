@@ -20,6 +20,7 @@ export type authProps = {
 export type bottonProps = {
   text: string;
   onClick: any;
+  loading?: boolean;
 };
 
 export interface IUser {
