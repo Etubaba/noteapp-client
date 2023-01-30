@@ -2,6 +2,7 @@ import { BASE_URL } from "../../api/url";
 import axios from "axios";
 
 const server = async (req: any, res: any) => {
+  //Start the sleeping server 
   const url = `${BASE_URL}`;
   try {
     await axios.get(url).then((response) => {
